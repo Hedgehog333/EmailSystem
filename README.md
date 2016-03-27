@@ -1,11 +1,11 @@
 ﻿# EmailSystem
 
-Realization MVC pattern and php
+Realization MVC pattern with PHP
 
 ## TODO
 - ~~Registration~~
 - ~~Authorization~~
-- Password recovery
+- Password recovery and table OneTimeAuth
 - ~~Attachments (Upload and download files)~~
 - Multiple File Upload
 - ~~WYSIWYG~~
