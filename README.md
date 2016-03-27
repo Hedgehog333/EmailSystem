@@ -11,11 +11,12 @@ Realization MVC pattern with PHP
 - ~~WYSIWYG~~
 - Design
 - Filters from database queries
+- Fix route.php .../index.php error!
 
 ### Tech
 * [TinyMCE](https://www.tinymce.com/) - is a platform-independent, browser-based WYSIWYG editor control, written in JavaScript and released as open-source software under the LGPL by Ephox.
 
-#### Databese:
+#### Databese MySql:
 Table Messages:
 ```mysql
 create table Messages(
@@ -35,7 +36,7 @@ create table Users(
 	LastName varchar(255),
 	Email varchar(40) unique,
 	Password varchar(255),
-	activated bit,
+	activated bit not null default b'0',
 	Primary key(ID)
 );
 ```
@@ -77,5 +78,16 @@ create table FromTo(
 	REFERENCES Users(ID),
 	CONSTRAINT fk_FT_Type FOREIGN KEY(TypeID)
 	REFERENCES Types(ID)
+);
+```
+Table OneTimeAuth:
+```mysql
+CREATE TABLE OneTimeAuth(
+	Token char(32) not null,
+	UserID int not null,
+	Expire datetime default null,
+	PRIMARY KEY (Token),
+	CONSTRAINT fk_FT_User FOREIGN KEY(UserID)
+	REFERENCES Users(ID)
 );
 ```
