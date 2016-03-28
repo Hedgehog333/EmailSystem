@@ -12,6 +12,7 @@ Realization MVC pattern with PHP
 - Design
 - Filters from database queries
 - Fix route.php .../index.php error!
+- CRUD classes
 
 ### Tech
 * [TinyMCE](https://www.tinymce.com/) - is a platform-independent, browser-based WYSIWYG editor control, written in JavaScript and released as open-source software under the LGPL by Ephox.
