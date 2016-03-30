@@ -29,7 +29,7 @@
         
         public function remind($token)
         {
-            $sql = 'SELECT user_id FROM OneTimeAuth WHERE Token = :token AND (Expire IS NULL OR Expire <= NOW()) LIMIT 1';
+            $sql = 'SELECT UserID FROM OneTimeAuth WHERE Token = :token AND (Expire IS NULL OR Expire <= NOW()) LIMIT 1';
             $stmt = $this->db->prepare($sql);
 
             $stmt->execute(array('token' => $token));
@@ -38,7 +38,7 @@
                 $stmt = $this->db->prepare('DELETE FROM OneTimeAuth WHERE Token = :token');
                 $stmt->execute(array('token' => $token));
 
-                return $row['user_id'];
+                return $row['UserID'];
             }
         }
 
