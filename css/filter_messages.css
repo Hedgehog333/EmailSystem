@@ -1,0 +1,70 @@
+.container{
+    margin:-600px 0px 0px 0px;
+}
+.panel-primary{
+    width: 1100px;
+    margin: 100px 0px 0px 100px;
+}
+.panel-heading{
+    height: 35px;
+}
+#sender{
+     width: 200px;
+}
+.body{
+    color: gainsboro;
+    max-width: 550px;
+    overflow:hidden;
+    white-space:nowrap;
+}
+.date{
+    left: 100px; 
+    width: 70px;
+}
+#check{
+    margin: 100px 0px 0px 100px;
+}
+.u{
+   border-bottom:solid gainsboro 1px;   
+}
+.navbar-vertical-left{
+    margin:0px 0px 0px 0px;
+
+}
+.incoming_sidebar, .sent_sidebar, .draft_sidebar, .spam_sidebar, .trash_sidebar{
+    background-repeat: no-repeat; /*Убираем повтор изображения*/   
+    background-position: 4px; /*Позиционируем*/   
+    outline: none; /*убираем стандартную обводку браузера*/   
+    -moz-border-radius: 5px; /*закругляем углы для Mozilla*/  
+    -webkit-border-radius: 5px; /*закругляем углы для Chrome, Safari*/   
+    border-radius: 5px; /*закругляем углы для остальных браузеров*/  
+    height: 55px; /*высота строки ввода*/ 
+    width:200px;
+    font-size: 13px; /*размер шрифта*/
+}
+.text{
+    outline: none; /*убираем стандартную обводку браузера*/   
+    -moz-border-radius: 5px; /*закругляем углы для Mozilla*/  
+    -webkit-border-radius: 5px; /*закругляем углы для Chrome, Safari*/   
+    border-radius: 5px; /*закругляем углы для остальных браузеров*/  
+    height: 30px; /*высота строки ввода*/ 
+    width:200px;
+    font-size: 16px; /*размер шрифта*/
+    font: italic;
+    color:rgb(49, 151, 116);
+}
+.incoming_sidebar{
+    background-image: url("../images/messages/incoming_message.png");   
+}
+.sent_sidebar{
+    background-image: url("../images/messages/sent_message.png");
+}
+.draft_sidebar{
+    background-image: url("../images/messages/draft_message.png");
+}
+.spam_sidebar{
+    background-image: url("../images/messages/spam_message.png");
+}
+.trash_sidebar{
+    background-image: url("../images/messages/trash_message.png");
+}

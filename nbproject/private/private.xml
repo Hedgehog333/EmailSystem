@@ -3,12 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/OpenServer/domains/phpExame.loc/application/data/dataBaseConnection.php</file>
-            <file>file:/E:/OpenServer/domains/phpExame.loc/application/models/model_login.php</file>
+            <file>file:/E:/OpenServer/domains/phpExame.loc/application/routers.php</file>
             <file>file:/E:/OpenServer/domains/phpExame.loc/index.php</file>
-            <file>file:/E:/OpenServer/domains/phpExame.loc/application/data/oneTimeAuth.php</file>
-            <file>file:/E:/OpenServer/domains/phpExame.loc/application/core/route.php</file>
-            <file>file:/E:/OpenServer/domains/phpExame.loc/application/bootstrap.php</file>
+            <file>file:/E:/OpenServer/domains/phpExame.loc/application/core/model.php</file>
+            <file>file:/E:/OpenServer/domains/phpExame.loc/application/controllers/controller_login.php</file>
+            <file>file:/E:/OpenServer/domains/phpExame.loc/application/controllers/controller_filter_messages.php</file>
+            <file>file:/E:/OpenServer/domains/phpExame.loc/application/models/model_login.php</file>
+            <file>file:/E:/OpenServer/domains/phpExame.loc/application/data/dataBaseMessagesManager.php</file>
+            <file>file:/E:/OpenServer/domains/phpExame.loc/application/controllers/controller_registration_result.php</file>
+            <file>file:/E:/OpenServer/domains/phpExame.loc/application/views/messages_menu_view.php</file>
+            <file>file:/E:/OpenServer/domains/phpExame.loc/application/models/model_filter_messages.php</file>
         </group>
     </open-files>
 </project-private>

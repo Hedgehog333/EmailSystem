@@ -4,7 +4,7 @@
 require_once 'core/model.php';
 require_once 'core/view.php';
 require_once 'core/controller.php';
-
+require_once 'core/route.php';
 /*
 Здесь обычно подключаются дополнительные модули, реализующие различный функционал:
 	> аутентификацию
@@ -19,7 +19,12 @@ require_once 'core/controller.php';
 	> и др.
 */
 
-require_once 'core/route.php';
-Route::start(); // запускаем маршрутизатор
-
-echo md5(uniqid('', true));
+/*
+ *  Подключаем файлы работы с базой данных
+ */
+require_once 'data/dataBaseConnection.php';
+require_once 'data/dataBaseMessagesManager.php';
+/*
+ *  Запускаем маршрутизатор
+ */
+Route::start();
