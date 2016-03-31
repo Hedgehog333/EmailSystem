@@ -3,16 +3,18 @@
 Realization MVC pattern with PHP
 
 ## TODO
+- **Fix route.php .../index.php error! and get requests error!**
 - ~~Registration~~
 - ~~Authorization~~
-- Password recovery and table OneTimeAuth
+- Authentication (need fix route.php)
+- ~~Password recovery and table OneTimeAuth~~
 - ~~Attachments (Upload and download files)~~
 - Multiple File Upload
 - ~~WYSIWYG~~
 - Design
 - Filters from database queries
-- Fix route.php .../index.php error!
 - CRUD classes
+- ~~CRUD for User~~
 
 ### Tech
 * [TinyMCE](https://www.tinymce.com/) - is a platform-independent, browser-based WYSIWYG editor control, written in JavaScript and released as open-source software under the LGPL by Ephox.

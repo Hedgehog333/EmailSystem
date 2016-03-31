@@ -24,6 +24,8 @@ require_once 'core/route.php';
  */
 require_once 'data/dataBaseConnection.php';
 require_once 'data/dataBaseMessagesManager.php';
+require_once 'data/oneTimeAuth.php';
+require_once 'data/userCRUD.php';
 /*
  *  Запускаем маршрутизатор
  */
