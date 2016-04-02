@@ -3,7 +3,7 @@
 Realization MVC pattern with PHP
 
 ## TODO
-- **Fix route.php .../index.php error! and get requests error!**
+- **Fix route.php .../index.php error! ~~and get requests error!~~**
 - ~~Registration~~
 - ~~Authorization~~
 - Authentication (need fix route.php)
