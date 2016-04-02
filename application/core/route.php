@@ -7,6 +7,7 @@
 */
 class Route
 {
+
     static function start()
     {
         // контроллер и действие по умолчанию
@@ -14,19 +15,8 @@ class Route
         $action_name = 'index';
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
-
-        $url = "";
-        foreach (array_unique($routes) as $key) {
-                $url = $url.$key;
-                $url = $url.'/';
-                # code...
-        }
-
-        $_SERVER['REQUEST_URI'] = $url;
-        $routes = explode('/', $_SERVER['REQUEST_URI']);
-        $temp = explode('?', $routes[count($routes) - 2]);
-        $routes[count($routes) - 2] = $temp[0];
-
+        $temp = explode('?', $routes[count($routes) - 1]);
+        $routes[count($routes) - 1] = $temp[0];
         if ( !empty($routes[1]) )
         {	
                 $controller_name = $routes[1];
@@ -66,11 +56,11 @@ class Route
         }
         else
         {
-            /*
-            правильно было бы кинуть здесь исключение,
-            но для упрощения сразу сделаем редирект на страницу 404
-            */
-            Route::ErrorPage404();
+                /*
+                правильно было бы кинуть здесь исключение,
+                но для упрощения сразу сделаем редирект на страницу 404
+                */
+                Route::ErrorPage404();
         }
 
         // создаем контроллер
@@ -94,8 +84,7 @@ class Route
     {
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
         header('HTTP/1.1 404 Not Found');
-                header("Status: 404 Not Found");
-                header('Location:'.$host.'404');
+        header("Status: 404 Not Found");
+        header('Location:'.$host.'404');
     }
-    
 }
