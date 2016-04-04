@@ -21,7 +21,7 @@ Realization MVC pattern with PHP
 - Поиск (Никита)
 - ~~Registration~~
 - ~~Authorization~~
-- Authentication (need fix route.php)
+- ~~Authentication~~
 - ~~Password recovery and table OneTimeAuth~~
 - ~~Attachments (Upload and download files)~~
 - Multiple File Upload
