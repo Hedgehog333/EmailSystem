@@ -4,7 +4,7 @@ Realization MVC pattern with PHP
 
 
 ## TODO
-- **Fix route.php .../index.php error! and get requests error!**\
+- **Fix route.php .../index.php error! ~~and get requests error!~~**\
 - Отфильтровать данные по дате (Рома)
 - Пагинация (Тема Лепетюха)
 - Checkbox(прочитанные/непрочитанные, удалить, переместить в спам) (Никита)
