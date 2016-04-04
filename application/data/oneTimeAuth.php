@@ -28,9 +28,9 @@
             $stmt = $this->connection->getConnect()->prepare($sql);
 
             $stmt->execute(array('token' => $token));
-
+            
             if ($row = $stmt->fetch()) {
-                $stmt = $this->db->prepare('DELETE FROM OneTimeAuth WHERE Token = :token');
+                $stmt = $this->connection->getConnect()->prepare('DELETE FROM OneTimeAuth WHERE Token = :token');
                 $stmt->execute(array('token' => $token));
 
                 return $row['UserID'];
