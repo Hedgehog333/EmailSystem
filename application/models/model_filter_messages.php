@@ -43,7 +43,17 @@ class Model_Filter_Messages extends Model{
 
         return $this->dbManager->getMessageById($id);
     }
+<<<<<<< HEAD
     
+=======
+    /*
+     *  Получение массива сообщений
+     */
+    public function getMessages(){
+
+        return $this->dbManager->getMessages();
+    }
+>>>>>>> refs/heads/pr/1
     /*
      *  Получение отправителя/получателя по значению MessageID, взависимости от типа письма
      */
@@ -118,7 +128,11 @@ class Model_Filter_Messages extends Model{
     public static function create() {
         $obj = new self;
         return $obj;
+<<<<<<< HEAD
       }
+=======
+    }
+>>>>>>> refs/heads/pr/1
     function set($property, $value) {
         $this->{$property} = $value;
         return $this;

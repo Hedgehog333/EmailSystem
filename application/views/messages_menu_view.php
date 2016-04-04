@@ -25,16 +25,27 @@
           </a>
         </li>
         <li>
+<<<<<<< HEAD
             <form action="filter_messages/incoming" method="Post">
                 <a class="newMessage" href>
                     <i class="fa fa-fw fa-lg fa-font"></i>
                     <input class="incoming_sidebar" type="submit" name="incoming" value="">
+=======
+            <form action="/filter_messages/incoming" method="Post">
+                <a class="newMessage" href>
+                    <i class="fa fa-fw fa-lg fa-rocket"></i> 
+                    <input class="incoming_sidebar" type="submit" name="incoming" value=""/>
+>>>>>>> refs/heads/pr/1
                     <input class="text" type="submit" hidden="true" name="incoming" value="Входящие">
                 </a>
             </form>
         </li>
         <li>
+<<<<<<< HEAD
             <form action="filter_messages/sent" method="Post">
+=======
+            <form action="/filter_messages/sent" method="Post">
+>>>>>>> refs/heads/pr/1
                 <a class="newMessage" href>
                     <i class="fa fa-fw fa-lg fa-rocket"></i> 
                     <input class="sent_sidebar" type="submit" name="sent" value=""/>
@@ -43,7 +54,11 @@
             </form>
         </li>
         <li>
+<<<<<<< HEAD
             <form action="filter_messages/draft" method="Post">
+=======
+            <form action="/filter_messages/draft" method="Post">
+>>>>>>> refs/heads/pr/1
                 <a class="newMessage" href>
                     <i class="fa fa-fw fa-lg fa-cog"></i> 
                     <input class="draft_sidebar" type="submit" name="draft" value=""/>
@@ -52,7 +67,11 @@
             </form>
         </li>
         <li>
+<<<<<<< HEAD
           <form action="filter_messages/spam" method="Post">
+=======
+          <form action="/filter_messages/spam" method="Post">
+>>>>>>> refs/heads/pr/1
                 <a class="newMessage" href>
                     <i class="fa fa-fw fa-lg fa-cog"></i> 
                     <input class="spam_sidebar" type="submit" name="spam" value=""/>
@@ -61,7 +80,11 @@
             </form>
         </li>
         <li>
+<<<<<<< HEAD
           <form action="filter_messages/basket" method="Post">
+=======
+          <form action="/filter_messages/basket" method="Post">
+>>>>>>> refs/heads/pr/1
                 <a class="newMessage" href>
                     <i class="fa fa-fw fa-lg fa-cog"></i> 
                     <input class="trash_sidebar" type="submit" name="basket" value=""/>
@@ -74,6 +97,7 @@
     <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading"></div>
+<<<<<<< HEAD
 
             <table class="table table-hover">
                     <tbody class="view-messages">
@@ -115,6 +139,24 @@
                     </tbody>
                 </table>
 
+=======
+            <table class="table table-hover">
+                <tbody class="view-messages">
+                    <?php
+                    //print_r($data);
+                      foreach($data as $row)
+                          echo '<tr class="message_form">
+                                <td id="id" hidden="true">'.$row["ID"].'</td>
+                                <td><input class="cheking" type="checkbox"></td>
+                                <td id="sender">'.$row["UserEmail"].'</td>
+                                <td>'.$row["Title"].' - </td>
+                                <td class="body u">'.$row["Body"].'</td>
+                                <td class="date u" align="right">'.$row["CreationDate"].'</td>
+                                </tr>';
+                    ?>
+                </tbody>
+            </table>
+>>>>>>> refs/heads/pr/1
         </div> 
     </div>
 
@@ -166,6 +208,7 @@
     });
 });*/
     
+<<<<<<< HEAD
     function addItem(id, sender, title, body, date) {
         alert(id);
         var tr = $('<tr/>',{
@@ -203,6 +246,8 @@
         ');*/
     }
   
+=======
+>>>>>>> refs/heads/pr/1
     /* Данная функция создаёт кроссбраузерный объект XMLHTTP */
       /*function getXmlHttp() {
         var xmlhttp;
@@ -236,6 +281,7 @@
         };*/
     }
   </script>
+<<<<<<< HEAD
   <div style="left:200px;" >
       <?php
       //print_r($data);
@@ -247,5 +293,7 @@
             ?><script type="text/javascript">addItem('<?=$row["ID"]?>','<?=$row["UserEmail"]?>','<?=$row["Title"]?>','<?=$row["Body"]?>','<?=$row["CreationDate"]?>');</script>
         
   </div>
+=======
+>>>>>>> refs/heads/pr/1
 </body>
 </html>
