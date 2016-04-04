@@ -26,13 +26,13 @@
         {
             $sql = 'SELECT UserID FROM OneTimeAuth WHERE Token = :token AND (Expire IS NULL OR Expire <= NOW()) LIMIT 1';
             $stmt = $this->connection->getConnect()->prepare($sql);
-
+            
             $stmt->execute(array('token' => $token));
             
             if ($row = $stmt->fetch()) {
                 $stmt = $this->connection->getConnect()->prepare('DELETE FROM OneTimeAuth WHERE Token = :token');
                 $stmt->execute(array('token' => $token));
-
+                
                 return $row['UserID'];
             }
         }
