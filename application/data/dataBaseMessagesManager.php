@@ -34,11 +34,7 @@ class DataBase_Messages_Manager {
         return $data;
     }
     /*
-<<<<<<< HEAD
-     *  Получение массива сообщений по ID
-=======
      *  Получение сообщений по ID
->>>>>>> refs/heads/pr/1
      */
     public function getMessageById($id){
 
@@ -50,8 +46,6 @@ class DataBase_Messages_Manager {
         return $data;
     }
     /*
-<<<<<<< HEAD
-=======
      *  Получение массива сообщений
      */
     public function getMessages(){
@@ -64,7 +58,6 @@ class DataBase_Messages_Manager {
         return $data;
     }
     /*
->>>>>>> refs/heads/pr/1
      *  Получение массива Отправителей(From) по значению MessageID
      */
     public function getUserFromByMessageId($id){
@@ -93,11 +86,7 @@ class DataBase_Messages_Manager {
         $getUser->execute(array('id' => $userID));
         $data = $getUser->fetch();
         //echo count($data);
-<<<<<<< HEAD
-        print_r($data);
-=======
         //print_r($data);
->>>>>>> refs/heads/pr/1
         return $data;
     }
 }

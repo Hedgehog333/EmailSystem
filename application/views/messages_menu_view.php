@@ -25,27 +25,16 @@
           </a>
         </li>
         <li>
-<<<<<<< HEAD
-            <form action="filter_messages/incoming" method="Post">
-                <a class="newMessage" href>
-                    <i class="fa fa-fw fa-lg fa-font"></i>
-                    <input class="incoming_sidebar" type="submit" name="incoming" value="">
-=======
             <form action="/filter_messages/incoming" method="Post">
                 <a class="newMessage" href>
                     <i class="fa fa-fw fa-lg fa-rocket"></i> 
                     <input class="incoming_sidebar" type="submit" name="incoming" value=""/>
->>>>>>> refs/heads/pr/1
                     <input class="text" type="submit" hidden="true" name="incoming" value="Входящие">
                 </a>
             </form>
         </li>
         <li>
-<<<<<<< HEAD
-            <form action="filter_messages/sent" method="Post">
-=======
             <form action="/filter_messages/sent" method="Post">
->>>>>>> refs/heads/pr/1
                 <a class="newMessage" href>
                     <i class="fa fa-fw fa-lg fa-rocket"></i> 
                     <input class="sent_sidebar" type="submit" name="sent" value=""/>
@@ -54,11 +43,7 @@
             </form>
         </li>
         <li>
-<<<<<<< HEAD
-            <form action="filter_messages/draft" method="Post">
-=======
             <form action="/filter_messages/draft" method="Post">
->>>>>>> refs/heads/pr/1
                 <a class="newMessage" href>
                     <i class="fa fa-fw fa-lg fa-cog"></i> 
                     <input class="draft_sidebar" type="submit" name="draft" value=""/>
@@ -67,11 +52,7 @@
             </form>
         </li>
         <li>
-<<<<<<< HEAD
-          <form action="filter_messages/spam" method="Post">
-=======
           <form action="/filter_messages/spam" method="Post">
->>>>>>> refs/heads/pr/1
                 <a class="newMessage" href>
                     <i class="fa fa-fw fa-lg fa-cog"></i> 
                     <input class="spam_sidebar" type="submit" name="spam" value=""/>
@@ -80,11 +61,7 @@
             </form>
         </li>
         <li>
-<<<<<<< HEAD
-          <form action="filter_messages/basket" method="Post">
-=======
           <form action="/filter_messages/basket" method="Post">
->>>>>>> refs/heads/pr/1
                 <a class="newMessage" href>
                     <i class="fa fa-fw fa-lg fa-cog"></i> 
                     <input class="trash_sidebar" type="submit" name="basket" value=""/>
@@ -97,49 +74,6 @@
     <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading"></div>
-<<<<<<< HEAD
-
-            <table class="table table-hover">
-                    <tbody class="view-messages">
-                        <tr class="message_form">
-                            <td><input class="cheking" type="checkbox"></td>
-                            <td id="sender">John</td>
-                            <td>kjhgfddfghjkjhgfdfghj - </td>
-                            <td class="body u">Ой... что-то затупил, да я написал как вы все получилось, спасибо) Но у меня еще один вопрос есть, как сделать так, чтобы не только вот это имя добавлялось в input, а еще этот инпут становился как focus, то есть чтобы не нужно было активировать его, а он сам активировался, после того как добавиться переменная name в него.</td>
-                            <td class="date u" align="right">14:12</td>
-                        </tr>
-                        <tr class="message_form">
-                            <td><input type="checkbox"></td>
-                            <td id="sender">Kely</td>
-                            <td>nfhisdhjfkdshf - </td>
-                            <td class="body u">Ой... что-то затупил, да я написал как вы все получилось, спасибо) Но у меня еще один вопрос есть, как сделать так, чтобы не только вот это имя добавлялось в input, а еще этот инпут становился как focus, то есть чтобы не нужно было активировать его, а он сам активировался, после того как добавиться переменная name в него.</td>
-                            <td class="date u" align="right">22:12</td>
-                        </tr>
-                        <tr class="message_form">
-                            <td><input type="checkbox"></td>
-                            <td id="sender">John</td>
-                            <td>kjhgfddfghjkjhgfdfghj - </td>
-                            <td class="body u">Ой... что-то затупил, да я написал как вы все получилось, спасибо) Но у меня еще один вопрос есть, как сделать так, чтобы не только вот это имя добавлялось в input, а еще этот инпут становился как focus, то есть чтобы не нужно было активировать его, а он сам активировался, после того как добавиться переменная name в него.</td>
-                            <td class="date u" align="right">14:12</td>
-                        </tr>
-                        <tr class="message_form">
-                            <td><input type="checkbox"></td>
-                            <td id="sender">John</td>
-                            <td>kjhgfddfghjkjhgfdfghj - </td>
-                            <td class="body u">Ой... что-то затупил, да я написал как вы все получилось, спасибо) Но у меня еще один вопрос есть, как сделать так, чтобы не только вот это имя добавлялось в input, а еще этот инпут становился как focus, то есть чтобы не нужно было активировать его, а он сам активировался, после того как добавиться переменная name в него.</td>
-                            <td class="date u" align="right">14:12</td>
-                        </tr>
-                        <tr class="message_form">
-                            <td><input type="checkbox"></td>
-                            <td id="sender">John</td>
-                            <td>kjhgfddfghjkjhgfdfghj - </td>
-                            <td class="body u">Ой... что-то затупил, да я написал как вы все получилось, спасибо) Но у меня еще один вопрос есть, как сделать так, чтобы не только вот это имя добавлялось в input, а еще этот инпут становился как focus, то есть чтобы не нужно было активировать его, а он сам активировался, после того как добавиться переменная name в него.</td>
-                            <td class="date u" align="right">14:12</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-=======
             <table class="table table-hover">
                 <tbody class="view-messages">
                     <?php
@@ -156,7 +90,6 @@
                     ?>
                 </tbody>
             </table>
->>>>>>> refs/heads/pr/1
         </div> 
     </div>
 
@@ -180,7 +113,6 @@
     $('.message_form').click(function(){
         val = $(this).text();
         //alert(val);
-        addItem();
         send(val);
     });
     $(document).on('change','.cheking',function(e){
@@ -208,46 +140,6 @@
     });
 });*/
     
-<<<<<<< HEAD
-    function addItem(id, sender, title, body, date) {
-        alert(id);
-        var tr = $('<tr/>',{
-            'class': 'message_form'
-        }).appendTo('.view-messages');
-        var td_id = $('<td/>', {
-            id: 'id',
-            hidden: 'true'
-        }).html(id).appendTo(tr);
-        var td_input = $('<td/>').appendTo(tr);
-        var input = $('<input/>',{
-            class: 'cheking',
-            type: 'checkbox'
-        }).appendTo(td_input);
-        var td_sender = $('<td/>',{
-            id: 'sender'
-        }).html(sender).appendTo(tr);
-        var td_title = $('<td/>').html(title).appendTo(tr);
-        var td_body = $('<td/>',{
-            class: 'body u'
-        }).html(body).appendTo(tr);
-        var td_date = $('<td/>',{
-            class: 'date u',
-            align: 'right'
-        }).html(date).appendTo(tr);
-        /*$('.view-messages').append('\
-            <tr class="message_form">\
-                <td id="id" hidden="true">id</td>\
-                <td><input class="cheking" type="checkbox"></td>\
-                <td id="sender">sender</td>\
-                <td>title - </td>\
-                <td class="body u">body</td>\
-                <td class="date u" align="right">date</td>\
-            </tr>\
-        ');*/
-    }
-  
-=======
->>>>>>> refs/heads/pr/1
     /* Данная функция создаёт кроссбраузерный объект XMLHTTP */
       /*function getXmlHttp() {
         var xmlhttp;
@@ -281,19 +173,5 @@
         };*/
     }
   </script>
-<<<<<<< HEAD
-  <div style="left:200px;" >
-      <?php
-      //print_r($data);
-        foreach($data as $row)
-	
-            //
-            //echo $row["ID"];
-            //echo '<script type="text/javascript">addItem($row["ID"],$row["Title"],$row["Body"],$row["CreationDate"]);</script>';
-            ?><script type="text/javascript">addItem('<?=$row["ID"]?>','<?=$row["UserEmail"]?>','<?=$row["Title"]?>','<?=$row["Body"]?>','<?=$row["CreationDate"]?>');</script>
-        
-  </div>
-=======
->>>>>>> refs/heads/pr/1
 </body>
 </html>
