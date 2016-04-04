@@ -17,6 +17,8 @@ class Controller_Registration_Result extends Controller
         }
         //тут надо вывести сообщение о том что на почту была отправленна ссылка
         //по которой нужно перейти для активации аккаунта
+        echo '<p>Вам на почту было отправленно письмо с сылкой для подтверждения активации.</p>';
         $this->view->generate('main_view.php', 'template_view.php');
+        
     }
 }
