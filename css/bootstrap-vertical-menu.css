@@ -131,3 +131,11 @@
     display: none;
   }
 }
+
+tr.message_form.not_read {
+    background-color: #efefef;
+}
+
+tr.message_form:hover {
+    background-color: #f5f5f5;
+}
