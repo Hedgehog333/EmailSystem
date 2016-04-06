@@ -78,8 +78,12 @@
                 <tbody class="view-messages">
                     <?php
                     //print_r($data);
+                    $dad = new DataBase_Messages_Manager();
+                    if(isset($data))
                       foreach($data as $row)
-                          echo '<tr class="message_form">
+                    {
+                        $ClassRead = $dad->getIsRead($row["ID"])?"not_read":"";
+                          echo '<tr class="message_form '.$ClassRead.' ">
                                 <td id="id" hidden="true">'.$row["ID"].'</td>
                                 <td><input class="cheking" type="checkbox"></td>
                                 <td id="sender">'.$row["UserEmail"].'</td>
@@ -87,6 +91,7 @@
                                 <td class="body u">'.$row["Body"].'</td>
                                 <td class="date u" align="right">'.$row["CreationDate"].'</td>
                                 </tr>';
+                    }
                     ?>
                 </tbody>
             </table>
