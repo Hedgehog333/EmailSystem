@@ -9,7 +9,7 @@ class DataBase_Messages_Manager {
     private $dbConnet;
     
     function __construct() {
-        $this->dbConnet = new DataBase_Connection(); 
+        $this->dbConnet = new DataBaseConnection(); 
     }
     /*
      *  Получение TypeID по стобцлу Name    
@@ -88,5 +88,14 @@ class DataBase_Messages_Manager {
         //echo count($data);
         //print_r($data);
         return $data;
+    }
+    
+    public function getIsRead($id)
+    {
+        $sql = "select IsRead from FromTo where MessageID = :id";
+        $isRead = $this->dbConnet->getConnect()->prepare($sql);
+        $isRead->execute(array('id' => $id));
+        $data = $isRead->fetch();
+        return $data["IsRead"];
     }
 }
