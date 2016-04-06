@@ -1,4 +1,11 @@
 <h1>Добро пожаловать!</h1>
+<?php
+    if(isset($_SESSION["CurrentUser"])):
+?>
+<a href="/messages_menu" style="display: block; margin-bottom: 16px;">Личный кабинет</a>
+<?php
+    endif;
+?>
 <form action="login" name="myform" method="post"> 
 	<label class="label">Логин</label>
     <input class="input" type="text" name="name" size="50"> 
