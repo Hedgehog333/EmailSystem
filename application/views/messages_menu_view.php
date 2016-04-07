@@ -1,44 +1,28 @@
-        <div class="panel panel-primary">
-            <div class="panel-heading"></div>
-            <table class="table table-hover">
-                <tbody class="view-messages">
-                    <?php
-                    //print_r($data);
-                    $dad = new DataBase_Messages_Manager();
-                    if(isset($data))
-                      foreach($data as $row)
-                    {
-                        $ClassRead = $dad->getIsRead($row["ID"])?"not_read":"";
-                          echo '<tr class="message_form '.$ClassRead.' ">
-                                <td id="id" hidden="true">'.$row["ID"].'</td>
-                                <td><input class="cheking" type="checkbox"></td>
-                                <td id="sender">'.$row["UserEmail"].'</td>
-                                <td>'.$row["Title"].' - </td>
-                                <td class="body u">'.$row["Body"].'</td>
-                                <td class="date u" align="right">'.$row["CreationDate"].'</td>
-                                </tr>';
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div> 
-    </div>
+
+    <table class="table table-hover">
+        <tbody class="view-messages">
+            <?php
+            //print_r($data);
+            $dad = new DataBase_Messages_Manager();
+            if(isset($data))
+              foreach($data as $row)
+            {
+                $ClassRead = $dad->getIsRead($row["ID"])?"not_read":"";
+                  echo '<tr class="message_form '.$ClassRead.' ">
+                        <td id="id" hidden="true">'.$row["ID"].'</td>
+                        <td><input class="cheking" type="checkbox"></td>
+                        <td id="sender">'.$row["UserEmail"].'</td>
+                        <td>'.$row["Title"].' - </td>
+                        <td class="body u">'.$row["Body"].'</td>
+                        <td class="date u" align="right">'.$row["CreationDate"].'</td>
+                        </tr>';
+            }
+            ?>
+        </tbody>
+    </table>
 
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script type="text/javascript">
-    $(document).ready(function() {
-      $('form').click(function() {
-        $('form').removeClass('selected');
-        $(this).addClass('selected');
-        event.preventDefault();
-      })
-    });
-    // показать текст меню
-    $('.newMessage').hover (
-        function(){$(this).children('.text').fadeIn(300);},
-        function(){$(this).children('.text').fadeOut(300)}
-    );
-    
     var val;
     // По клику получаем данные письма
     $('.message_form').click(function(){

@@ -72,7 +72,26 @@
       </ul>
     </nav>
     <div class="container">
-        <?php include 'application/views/'.$content_view; ?>
+        <div class="panel panel-primary">
+            <div class="panel-heading"></div>
+                <?php include 'application/views/'.$content_view; ?>
+            </div>
+        </div>
     </div>
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript">
+          $(document).ready(function() {
+            $('form').click(function() {
+              $('form').removeClass('selected');
+              $(this).addClass('selected');
+              event.preventDefault();
+            })
+          });
+          // показать текст меню
+          $('.newMessage').hover (
+              function(){$(this).children('.text').fadeIn(300);},
+              function(){$(this).children('.text').fadeOut(300)}
+          );
+          </script>
 </body>
 </html>
