@@ -62,7 +62,8 @@ class Controller_Filter_Messages extends Controller{
     function getData($menuType){
         $data = $this->model->get_data($menuType);
         //echo $data;
-        $this->view->generate('messages_menu_view.php', null, $data);
+        //$this->view->generate('messages_menu_view.php', null, $data);
+        $this->view->generate('messages_menu_view.php', 'tmpmessage_view.php', $data);
        /* $messageID = $this->modelFilterMessages->getMessagesIdByTypeId($menuType);
         foreach ($messageID as $val){
             $messages = array_unique($this->modelFilterMessages->getMessages($val));

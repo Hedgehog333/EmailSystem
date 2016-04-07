@@ -15,6 +15,7 @@ class Controller_Messages_Menu extends Controller {
     
     function action_index()
     {
-        $this->view->generate('messages_menu_view.php', null);
+        //$this->view->generate('messages_menu_view.php', null);
+        $this->view->generate('messages_menu_view.php', 'tmpmessage_view.php');
     }
 }
