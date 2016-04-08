@@ -9,7 +9,7 @@ class DataBase_Messages_Manager {
     private $dbConnet;
     
     function __construct() {
-        $this->dbConnet = new DataBase_Connection(); 
+        $this->dbConnet = new DataBaseConnection(); 
     }
     /*
      *  Получение TypeID по стобцлу Name    
@@ -88,5 +88,32 @@ class DataBase_Messages_Manager {
         //echo count($data);
         //print_r($data);
         return $data;
+    }
+    
+    public function getIsRead($id)
+    {
+        $sql = "select IsRead from FromTo where MessageID = :id";
+        $isRead = $this->dbConnet->getConnect()->prepare($sql);
+        $isRead->execute(array('id' => $id));
+        $data = $isRead->fetch();
+        return $data["IsRead"];
+    }
+    
+    public function setIsRead($id)
+    {
+        $sql = "UPDATE FromTo SET IsRead=1 WHERE ID = :id";
+        $isRead = $this->dbConnet->getConnect()->prepare($sql);
+        $isRead->execute(array('id' => $id));
+    }
+    
+    public function getMessagesToUser($UserID)
+    {
+        // ID 	CreationDate 	Title 	Body 	MessageID 	UserFrom 	UserTo 	ExpiredDate 	TypeID 	IsRead 
+        //select * from Messages LEFT JOIN FromTo USING(ID) WHERE ID in (SELECT `MessageID` FROM `FromTo` WHERE `UserTo` = 1)
+        //$sql = "SELECT * FROM Messages WHERE ID in (SELECT `MessageID` FROM `FromTo` WHERE `UserTo` = 1)";
+        $sql = "select * from Messages LEFT JOIN FromTo USING(ID) WHERE ID in (SELECT `MessageID` FROM `FromTo` WHERE `UserTo` = 1)";
+        $messages = $this->dbConnet->getConnect()->prepare($sql);
+        $messages->execute();
+        return $messages->fetchAll();
     }
 }

@@ -2,17 +2,34 @@
 
 Realization MVC pattern with PHP
 
+
 ## TODO
+- **Fix route.php .../index.php error! ~~and get requests error!~~**\
++ Отфильтровать данные по дате (Рома)
+- Пагинация (Тема Лепетюха)
+- Checkbox(прочитанные/непрочитанные, удалить, переместить в спам) (Никита)
+- Внедрение отображение файлов, загрузка (Никита)
+- ~~Открыть сообщение (Еж)~~
+- Скролл с закреплением шапки (Рома)
+- Выбор сообщений для конкретного пользователя(Еж)
+- Отображение загрузки новых писем как в Gmail() ?
+- Проверить наличие новых писем (Рома)
+- Подсвечивать новые письма (Рома)
+- Ответить (Тема Лепетюха)
+- Переслать (Тема Лепетюха)
+- Написать письмо (Тема Лепетюха)
+- Поиск (Никита)
 - ~~Registration~~
 - ~~Authorization~~
-- Password recovery and table OneTimeAuth
+- ~~Authentication~~
+- ~~Password recovery and table OneTimeAuth~~
 - ~~Attachments (Upload and download files)~~
 - Multiple File Upload
 - ~~WYSIWYG~~
 - Design
 - Filters from database queries
-- Fix route.php .../index.php error!
 - CRUD classes
+- ~~CRUD for User~~
 
 ### Tech
 * [TinyMCE](https://www.tinymce.com/) - is a platform-independent, browser-based WYSIWYG editor control, written in JavaScript and released as open-source software under the LGPL by Ephox.

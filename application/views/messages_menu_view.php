@@ -1,120 +1,41 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Bootstrap Vertical Menu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  
-  <!-- Twitter Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../css/filter_messages.css">
-  <link rel="stylesheet" href="../../css/bootstrap-vertical-menu.css">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
-</head>
-<body>
-    <nav class="navbar navbar-vertical-left">
-      <ul class="nav navbar-nav">
-        <li>
-          <a class="newMessage" href>
-            <i class="fa fa-fw fa-lg fa-star"></i> 
-            <img src="../../images/messages/new_message.png" style="position: relative;left: -30px;"/><br>
-            <span class="text" hidden="true">Написать письмо</span>
-          </a>
-        </li>
-        <li>
-            <form action="/filter_messages/incoming" method="Post">
-                <a class="newMessage" href>
-                    <i class="fa fa-fw fa-lg fa-rocket"></i> 
-                    <input class="incoming_sidebar" type="submit" name="incoming" value=""/>
-                    <input class="text" type="submit" hidden="true" name="incoming" value="Входящие">
-                </a>
-            </form>
-        </li>
-        <li>
-            <form action="/filter_messages/sent" method="Post">
-                <a class="newMessage" href>
-                    <i class="fa fa-fw fa-lg fa-rocket"></i> 
-                    <input class="sent_sidebar" type="submit" name="sent" value=""/>
-                    <input class="text" type="submit" hidden="true" name="sent" value="Исходящие">
-                </a>
-            </form>
-        </li>
-        <li>
-            <form action="/filter_messages/draft" method="Post">
-                <a class="newMessage" href>
-                    <i class="fa fa-fw fa-lg fa-cog"></i> 
-                    <input class="draft_sidebar" type="submit" name="draft" value=""/>
-                    <input class="text" type="submit" hidden="true" name="draft" value="Черновик">
-                </a>
-            </form>
-        </li>
-        <li>
-          <form action="/filter_messages/spam" method="Post">
-                <a class="newMessage" href>
-                    <i class="fa fa-fw fa-lg fa-cog"></i> 
-                    <input class="spam_sidebar" type="submit" name="spam" value=""/>
-                    <input class="text" type="submit" hidden="true" name="spam" value="Спам">
-                </a>
-            </form>
-        </li>
-        <li>
-          <form action="/filter_messages/basket" method="Post">
-                <a class="newMessage" href>
-                    <i class="fa fa-fw fa-lg fa-cog"></i> 
-                    <input class="trash_sidebar" type="submit" name="basket" value=""/>
-                    <input class="text" type="submit" hidden="true" name="basket" value="Корзина">
-                </a>
-            </form>
-        </li>
-      </ul>
-    </nav>
-    <div class="container">
-        <div class="panel panel-primary">
-            <div class="panel-heading"></div>
-            <table class="table table-hover">
-                <tbody class="view-messages">
-                    <?php
-                    //print_r($data);
-                      foreach($data as $row)
-                          echo '<tr class="message_form">
-                                <td id="id" hidden="true">'.$row["ID"].'</td>
-                                <td><input class="cheking" type="checkbox"></td>
-                                <td id="sender">'.$row["UserEmail"].'</td>
-                                <td>'.$row["Title"].' - </td>
-                                <td class="body u">'.$row["Body"].'</td>
-                                <td class="date u" align="right">'.$row["CreationDate"].'</td>
-                                </tr>';
-                    ?>
-                </tbody>
-            </table>
-        </div> 
-    </div>
+
+    <table class="table table-hover">
+        <tbody class="view-messages">
+            <?php
+            //print_r($data);
+            $dad = new DataBase_Messages_Manager();
+            print_r($dad->getMessagesToUser($_SESSION['ID']));
+            if(isset($data))
+              foreach($data as $row)
+            {
+                $ClassRead = !$dad->getIsRead($row["ID"])?"not_read":"";
+                  echo '<tr class="message_form '.$ClassRead.' ">
+                        <td id="id" class="id" hidden="true">'.$row["ID"].'</td>
+                        <td><input class="cheking" type="checkbox"></td>
+                        <td id="sender" class="sender">'.$row["UserEmail"].'</td>
+                        <td class="title">'.$row["Title"].' - </td>
+                        <td class="body u">'.$row["Body"].'</td>
+                        <td class="date u" align="right">'.$row["CreationDate"].'</td>
+                        </tr>';
+            }
+            ?>
+        </tbody>
+    </table>
 
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script type="text/javascript">
-    $(document).ready(function() {
-      $('form').click(function() {
-        $('form').removeClass('selected');
-        $(this).addClass('selected');
-        event.preventDefault();
-      })
-    });
-    // показать текст меню
-    $('.newMessage').hover (
-        function(){$(this).children('.text').fadeIn(300);},
-        function(){$(this).children('.text').fadeOut(300)}
-    );
-    
     var val;
     // По клику получаем данные письма
     $('.message_form').click(function(){
-        val = $(this).text();
+        var message = {};
+        message.id = $(this).children(".id").text();        
+        message.sender = $(this).children(".sender").text();
+        message.title = $(this).children(".title").text();
+        message.body = $(this).children(".body").text();
+        message.date = $(this).children(".date").text();
+
         //alert(val);
-        addItem();
-        send(val);
+        send(message);
     });
     $(document).on('change','.cheking',function(e){
         if(this.checked)
@@ -159,8 +80,18 @@
         return xmlhttp;
       }*/
 
-    function send(id) {
-        alert(id);
+    function send(object) {
+        //console.log(object);
+        var form = $('<form action="/openmessage" method="post">' +
+        '<input type="hidden" name="MessageId" value="'+ object.id +'" />' +
+        '<input type="hidden" name="MessageSender" value="'+ object.sender +'" />' +
+        '<input type="hidden" name="MessageTitle" value="'+ object.title +'" />' +
+        '<input type="hidden" name="MessageBody" value="'+ object.body +'" />' +
+        '<input type="hidden" name="MessageDate" value="'+ object.date +'" />' +
+        '</form>');
+        $('body').append(form);
+        $(form).submit();
+        
         /*var xmlhttp = $(this).getXmlHttp(); // Создаём объект XMLHTTP
         xmlhttp.open('POST', 'filter_messages/open', true); // Открываем асинхронное соединение
         xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Отправляем кодировку
@@ -174,5 +105,3 @@
         };*/
     }
   </script>
-</body>
-</html>

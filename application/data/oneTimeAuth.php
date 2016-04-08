@@ -1,44 +1,39 @@
 <?php
     class oneTimeAuth
     {
-        private $db;
+        private $connection;
 
-        public function __construct(PDO $db)
+        public function __construct()
         {
-            $this->db = $db;
+            $this->connection = new DataBaseConnection();
         }
 
-        public function remember($user_id, $expire = null)
+        public function remember($userId, $expire = null)
         {
             $sql = 'INSERT INTO OneTimeAuth (Token, UserID, Expire)'
-                    . 'VALUES (:token, :user_id, :expire)';
-            $stmt = $this->db->prepare($sql);
+                    . 'VALUES (:token, :userId, :expire)';
+            $stmt = $this->connection->getConnect()->prepare($sql);
+            $token = $this->generateToken();
+            $stmt->bindParam(':token', $token);
+            $stmt->bindParam(':userId', $userId);
+            $stmt->bindParam(':expire', $expire);
+            $stmt->execute();
 
-            while (true) {
-                try {
-                    $stmt->execute(array(
-                        ':token' => $token = $this->generateToken(),
-                        'user_id' => $user_id,
-                        'expire' => $expire
-                    ));
-                    break;
-                } catch (PDOException $e) {}
-            }
             return $token;
         }
         
         public function remind($token)
         {
-            $sql = 'SELECT user_id FROM OneTimeAuth WHERE Token = :token AND (Expire IS NULL OR Expire <= NOW()) LIMIT 1';
-            $stmt = $this->db->prepare($sql);
-
+            $sql = 'SELECT UserID FROM OneTimeAuth WHERE Token = :token AND (Expire IS NULL OR Expire <= NOW()) LIMIT 1';
+            $stmt = $this->connection->getConnect()->prepare($sql);
+            
             $stmt->execute(array('token' => $token));
-
+            
             if ($row = $stmt->fetch()) {
-                $stmt = $this->db->prepare('DELETE FROM OneTimeAuth WHERE Token = :token');
+                $stmt = $this->connection->getConnect()->prepare('DELETE FROM OneTimeAuth WHERE Token = :token');
                 $stmt->execute(array('token' => $token));
-
-                return $row['user_id'];
+                
+                return $row['UserID'];
             }
         }
 

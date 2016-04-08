@@ -7,7 +7,7 @@
 		public function DBC()
 		{
                     $dbc = new DataBaseConnection();
-                    $this->dbh = $dbc.getConnect();
+                    $this->dbh = $dbc->getConnect();
 		}
 		public function DBC_close()
 		{
@@ -22,10 +22,11 @@
 				$stmt->bindParam(':pass', $pass);
 				$stmt->execute();
 				$result = $stmt->fetch(PDO::FETCH_OBJ);
+                                
+                                $user = new UserCRUD();
+                                $_SESSION["CurrentUser"] = $user->getForId($result->ID);
 				return $result;
 			}
 		}
 	}
-	
-	
 ?>
