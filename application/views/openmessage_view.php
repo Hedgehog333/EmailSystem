@@ -10,15 +10,18 @@
         padding: 8px 20px;
     }
 </style>
-
-<span class="date">10.10.2081</span>
-<h3>Title</h3>
+<?php
+    if(isset($_POST['MessageId'])){
+        $m = new DataBase_Messages_Manager();
+        $m->setIsRead($_POST['MessageId']);
+    }
+?>
+<span class="date"><?= $_POST['MessageDate'] ?></span>
+<h3><?= $_POST['MessageTitle'] ?></h3>
 <ul>
-    <li>from</li>
-    <li>from</li>
-    <li>from</li>
+    <li><?= $_POST['MessageSender'] ?></li>
 </ul>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div>
+    <?= $_POST['MessageBody'] ?>
+</div>
