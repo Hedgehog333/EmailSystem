@@ -98,4 +98,11 @@ class DataBase_Messages_Manager {
         $data = $isRead->fetch();
         return $data["IsRead"];
     }
+    
+    public function setIsRead($id)
+    {
+        $sql = "UPDATE FromTo SET IsRead=1 WHERE ID = :id";
+        $isRead = $this->dbConnet->getConnect()->prepare($sql);
+        $isRead->execute(array('id' => $id));
+    }
 }
