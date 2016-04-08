@@ -105,4 +105,15 @@ class DataBase_Messages_Manager {
         $isRead = $this->dbConnet->getConnect()->prepare($sql);
         $isRead->execute(array('id' => $id));
     }
+    
+    public function getMessagesToUser($UserID)
+    {
+        // ID 	CreationDate 	Title 	Body 	MessageID 	UserFrom 	UserTo 	ExpiredDate 	TypeID 	IsRead 
+        //select * from Messages LEFT JOIN FromTo USING(ID) WHERE ID in (SELECT `MessageID` FROM `FromTo` WHERE `UserTo` = 1)
+        //$sql = "SELECT * FROM Messages WHERE ID in (SELECT `MessageID` FROM `FromTo` WHERE `UserTo` = 1)";
+        $sql = "select * from Messages LEFT JOIN FromTo USING(ID) WHERE ID in (SELECT `MessageID` FROM `FromTo` WHERE `UserTo` = 1)";
+        $messages = $this->dbConnet->getConnect()->prepare($sql);
+        $messages->execute();
+        return $messages->fetchAll();
+    }
 }

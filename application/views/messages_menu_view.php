@@ -4,6 +4,7 @@
             <?php
             //print_r($data);
             $dad = new DataBase_Messages_Manager();
+            print_r($dad->getMessagesToUser($_SESSION['ID']));
             if(isset($data))
               foreach($data as $row)
             {
