@@ -7,12 +7,12 @@
             if(isset($data))
               foreach($data as $row)
             {
-                $ClassRead = $dad->getIsRead($row["ID"])?"not_read":"";
+                $ClassRead = !$dad->getIsRead($row["ID"])?"not_read":"";
                   echo '<tr class="message_form '.$ClassRead.' ">
-                        <td id="id" hidden="true">'.$row["ID"].'</td>
+                        <td id="id" class="id" hidden="true">'.$row["ID"].'</td>
                         <td><input class="cheking" type="checkbox"></td>
-                        <td id="sender">'.$row["UserEmail"].'</td>
-                        <td>'.$row["Title"].' - </td>
+                        <td id="sender" class="sender">'.$row["UserEmail"].'</td>
+                        <td class="title">'.$row["Title"].' - </td>
                         <td class="body u">'.$row["Body"].'</td>
                         <td class="date u" align="right">'.$row["CreationDate"].'</td>
                         </tr>';
@@ -26,9 +26,15 @@
     var val;
     // По клику получаем данные письма
     $('.message_form').click(function(){
-        val = $(this).text();
+        var message = {};
+        message.id = $(this).children(".id").text();        
+        message.sender = $(this).children(".sender").text();
+        message.title = $(this).children(".title").text();
+        message.body = $(this).children(".body").text();
+        message.date = $(this).children(".date").text();
+
         //alert(val);
-        send(val);
+        send(message);
     });
     $(document).on('change','.cheking',function(e){
         if(this.checked)
@@ -73,8 +79,18 @@
         return xmlhttp;
       }*/
 
-    function send(id) {
-        alert(id);
+    function send(object) {
+        //console.log(object);
+        var form = $('<form action="/openmessage" method="post">' +
+        '<input type="hidden" name="MessageId" value="'+ object.id +'" />' +
+        '<input type="hidden" name="MessageSender" value="'+ object.sender +'" />' +
+        '<input type="hidden" name="MessageTitle" value="'+ object.title +'" />' +
+        '<input type="hidden" name="MessageBody" value="'+ object.body +'" />' +
+        '<input type="hidden" name="MessageDate" value="'+ object.date +'" />' +
+        '</form>');
+        $('body').append(form);
+        $(form).submit();
+        
         /*var xmlhttp = $(this).getXmlHttp(); // Создаём объект XMLHTTP
         xmlhttp.open('POST', 'filter_messages/open', true); // Открываем асинхронное соединение
         xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Отправляем кодировку
